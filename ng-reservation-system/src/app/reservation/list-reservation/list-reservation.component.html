@@ -1,0 +1,19 @@
+<div class="row">
+    <ul class="col-md-8" style="list-style: none;">
+      <li  *ngFor="let reservation of reservations" >
+        <div class="card border-light mb-3">
+          <div class="card-body">
+            <p class="card-text">
+              Leave Date: {{reservation.tripLeaveDate}} <br />
+              Leave from: {{reservation.tripLeaveFrom}} <br />
+              To: {{reservation.tripTo}}
+            </p>
+  
+            <p class="lead">
+              <button class="btn btn-primary btn-sm" (click)="cancelReservation(reservation.id)" >Cancel</button>
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>

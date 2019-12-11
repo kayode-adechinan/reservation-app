@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-md-8">
+    <form [formGroup]="createUserForm" (ngSubmit)="onSubmit(createUserForm)">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" formControlName="email" class="form-control" />
+          <!-- <div  style="color:red"
+                              *ngIf="createUserForm.get('email').errors && createUserForm.get('email').dirty && createUserForm.get('email').errors.required">
+                              Required
+            </div> -->
+
+            <div
+            style="color:red"
+            *ngIf="
+              f.email.errors &&
+              f.email.touched &&
+              f.email.dirty &&
+              f.email.errors?.email
+            ">
+            Invalid email
+          </div>
+
+
+          <div
+            style="color:red"
+            *ngIf="
+              f.email.errors &&
+              f.email.touched &&
+              f.email.dirty &&
+              f.email.errors?.emailExist
+            "
+          >
+            Email already exist
+          </div>
+
+
+          <div
+          style="color:green"
+          *ngIf="
+            !f.email.errors &&
+            f.email.touched &&
+            f.email.dirty &&
+            !f.email.errors?.email
+          "
+        >
+          Perfect
+        </div>
+
+          
+
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+          />
+          <div
+            style="color:red"
+            *ngIf="
+              f.password.errors &&
+              f.email.touched &&
+              f.email.dirty &&
+              f.password.errors.required
+            "
+          >
+            Required
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Url</label>
+                      <div class="col-sm-10">
+                          <input type="text" formControlName="websiteUrl" class="form-control">
+                          <div  style="color:red"
+                              *ngIf="createTripForm.get('websiteUrl').errors && createTripForm.get('websiteUrl').dirty && createTripForm.get('websiteUrl').errors.validUrl">
+                              Oops, only urls served over https and only from the .io top-level domain are accepted.
+                              Talk about restrictions!
+                          </div>
+      
+                      </div>
+                  </div> -->
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="createUserForm.invalid"
+          >
+            Register
+          </button>
+
+          <!-- <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Register
+            </button> -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

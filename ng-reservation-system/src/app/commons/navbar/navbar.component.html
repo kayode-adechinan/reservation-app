@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">AM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" >Home</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/search-trip" routerLinkActive="active" >Search</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create-trip" routerLinkActive="active" >Create Trip</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/list-reservation" routerLinkActive="active">My reservations</a>
+        </li>
+
+
+
+       
+        <li *ngIf="!isLogged(); else notLogged" class="nav-item">
+          <a class="nav-link" routerLink="/login-user" routerLinkActive="active">Signin</a>
+        </li>
+
+        <ng-template  #notLogged>
+
+            <li class="nav-item">
+                <a class="nav-link " style="cursor: pointer !important;"  (click)="logout()">Logout</a>
+              </li>
+
+
+       
+        </ng-template>
+
+        <li class="nav-item">
+            <a class="nav-link"routerLink="/create-user" routerLinkActive="active">Register</a>
+          </li>
+
+
+
+       
+      </ul>
+      
+    </div>
+  </nav>
